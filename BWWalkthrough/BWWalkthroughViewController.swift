@@ -228,10 +228,6 @@ import UIKit
 
     /// Update the UI to reflect the current walkthrough status
     fileprivate func updateUI(){
-        
-        pageControl?.currentPage = currentPage
-        delegate?.walkthroughPageDidChange?(currentPage)
-        
         // Hide/Show navigation buttons
         if currentPage == controllers.count - 1{
             nextButton?.isHidden = true
@@ -244,6 +240,9 @@ import UIKit
         }else{
             prevButton?.isHidden = false
         }
+        
+        pageControl?.currentPage = currentPage
+        delegate?.walkthroughPageDidChange?(currentPage)
     }
     
     // MARK: - Scrollview Delegate -
