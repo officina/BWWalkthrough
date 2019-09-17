@@ -44,6 +44,7 @@ public enum WalkthroughAnimationType:String{
 open class BWWalkthroughPageViewController: UIViewController, BWWalkthroughPage {
     
     private var animation:WalkthroughAnimationType = .Linear
+    private var didStartAnimation:Bool = false
     private var subviewsSpeed:[CGPoint] = Array()
     private var notAnimatableViews:[Int] = [] // Array of views' tags that should not be animated during the scroll/transition
     
@@ -110,6 +111,14 @@ open class BWWalkthroughPageViewController: UIViewController, BWWalkthroughPage 
                 animationAlpha(i, offset)
             }
         }
+    }
+    
+    open func startPageAnimationIfNeeded() -> Bool {
+        if self.didStartAnimation {
+            return false
+        }
+        self.didStartAnimation = true
+        return true
     }
 
     // MARK: Animations
