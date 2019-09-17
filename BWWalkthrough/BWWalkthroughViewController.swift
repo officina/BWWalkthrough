@@ -141,6 +141,8 @@ import UIKit
             
             delegate?.walkthroughNextButtonPressed?()
             gotoPage(currentPage + 1)
+        } else {
+            delegate?.walkthroughCloseButtonPressed?()
         }
     }
     
