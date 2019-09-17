@@ -243,6 +243,9 @@ import UIKit
         
         pageControl?.currentPage = currentPage
         delegate?.walkthroughPageDidChange?(currentPage)
+        if let vc = controllers[currentPage] as? BWWalkthroughPageViewController {
+            vc.startPageAnimationIfNeeded()
+        }
     }
     
     // MARK: - Scrollview Delegate -
